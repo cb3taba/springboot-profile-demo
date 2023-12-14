@@ -9,7 +9,7 @@ public class HelloServiceDev implements HelloService {
 
 	@Override
 	public String getGreeting() {
-		return "Hello from DEV ";
+		return "Hello from DEV stage ";
 	}
 
 }
