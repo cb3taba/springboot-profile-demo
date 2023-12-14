@@ -1,0 +1,14 @@
+logging:
+  level: 
+    com.taba.springboot.profile.controller: ERROR           
+  file: /Users/Ahmad/workspace_API/springboot-profile-demo/logs/prod.log
+  
+server:
+  port: 8443
+
+  ssl:
+    key-store: classpath:mykeystore.jks
+    key-store-password: changeit
+    key-password: changeit
+  
+ 

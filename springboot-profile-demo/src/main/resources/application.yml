@@ -1,0 +1,6 @@
+spring:
+  profiles:
+    active: tud
+     
+myproperty: 
+  amad's value

@@ -1,0 +1,20 @@
+logging:
+  pattern:
+    #console: "%d %-5level %logger : %msg%n"
+    file: "%d %-5level [%thread] %logger : %msg%n"
+  level: 
+    com.taba.springboot.profile.controller: INFO
+  file: /Users/Ahmad/workspace_API/springboot-profile-demo/logs/tuc.log
+  
+server:
+  port: 8065
+
+  ssl:
+    enabled: true
+    key-alias: local_ssl
+    key-store: classpath:local-ssl.p12
+    key-store-type: PKCS12
+    key-store-password: changeit
+    key-password: changeit
+  
+  

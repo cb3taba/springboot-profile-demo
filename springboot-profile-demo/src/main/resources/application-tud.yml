@@ -1,0 +1,17 @@
+logging:
+  pattern:
+    #console: "%d %-5level %logger : %msg%n"
+    file: "%d %-5level [%thread] %logger : %msg%n"
+  level: 
+    com.taba.springboot.profile.controller: INFO
+  file: /Users/Ahmad/workspace_API/springboot-profile-demo/logs/tud.log
+  
+server:
+  port: 4443
+
+  ssl:
+    key-store: classpath:mykeystore.jks
+    key-store-password: changeit
+    key-password: changeit
+  
+  

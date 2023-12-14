@@ -1,0 +1,18 @@
+logging:
+  pattern:
+    #console: "%d %-5level %logger : %msg%n"
+    file: "%d %-5level [%thread] %logger : %msg%n"
+  level: 
+    com.taba.springboot.profile.*: INFO
+  file: Users/Ahmad/Desktop/logs/dev.log
+    #path: Users/Ahmad/Desktop/logs/
+  
+server:
+  port: 9090
+
+  ssl:
+    key-store: classpath:mykeystore.jks
+    key-store-password: changeit
+    key-password: changeit
+  
+  
