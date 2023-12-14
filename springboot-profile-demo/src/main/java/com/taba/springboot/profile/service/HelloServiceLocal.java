@@ -9,6 +9,7 @@ public class HelloServiceLocal implements HelloService {
 
 	@Override
 	public String getGreeting() {
+		System.out.println("Changed in github !");
 		return "Hello from LOCAL ";
 	}
 
