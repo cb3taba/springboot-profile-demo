@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<include resource="org/springframework/boot/logging/logback/defaults.xml" />
+	<statusListener class="ch.qos.logback.core.status.OnConsoleStatusListener" />
+	
+	<contextName>profileDemo</contextName>
+	
+	<property name="logdir" value="${logdir:-./logs/}" />
+	<property name="LOG_FILE" value="${logdir}${CONTEXT_NAME}.log"/>
+
+	<appender name="Console" class="ch.qos.logback.core.ConsoleAppender">
+		<!-- encoders are assigned the type ch.qos.logback.classic.encoder.PatternLayoutEncoder 
+			by default -->
+		<encoder>
+			<pattern>%highlight(%-5level) %yellow(%date{dd MMM yyyy - HH:mm:ss.SSS}) %blue([%thread]) %cyan(%-50logger{36}) - %green(%msg%n)</pattern>
+		</encoder>
+	</appender>
+
+	<appender name="RollingFile" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${LOG_FILE}</file>
+		<append>true</append>
+		
+		<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+			<pattern>%d [%thread] %-5level %-50logger{50} - %msg%n
+			</pattern>
+		</encoder>
+		
+		<rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+		  <fileNamePattern>${logdir}/${CONTEXT_NAME}-%d{yyy-MM-dd}.%i.log</fileNamePattern>
+		  <maxFileSize>3KB</maxFileSize>
+		  <maxHistory>10</maxHistory>
+		  <totalSizeCap>30KB</totalSizeCap>
+		  <cleanHistoryOnStart>true</cleanHistoryOnStart>		 
+		</rollingPolicy>
+		
+	</appender>
+
+<!-- 	<root level="info"> -->
+<!-- 		<appender-ref ref="Console" /> -->
+<!-- 		<appender-ref ref="RollingFile" /> -->
+<!-- 	</root> -->
+
+<!-- 	<logger name="com.taba.springboot.profile" level="info" >	 -->
+<!-- 	  <appender-ref ref="Console" />		 -->
+<!-- 		<appender-ref ref="RollingFile" /> -->
+<!-- 	</logger> -->
+	
+	
+	<springProfile name="local">					
+		<logger name="com.taba.springboot.profile" level="info" />
+		<logger name="com.taba.springboot.profile.controller" level="info" />
+
+		<root level="info">
+			<appender-ref ref="Console" />
+		</root>		
+	</springProfile>
+	
+	<springProfile name="dev | tuc">					
+		<logger name="com.taba.springboot.profile" level="warn" />
+		<logger name="com.taba.springboot.profile.controller" level="warn" />
+
+		<root level="info">
+			<appender-ref ref="Console" />
+		</root>		
+	</springProfile>
+		
+	<springProfile name="tud | prod">					
+		<logger name="com.taba.springboot.profile" level="error" />
+		<logger name="com.taba.springboot.profile.controller" level="error" />
+
+		<root level="info">
+			<appender-ref ref="Console" />
+		</root>		
+	</springProfile>		
+	
+	
+</configuration>

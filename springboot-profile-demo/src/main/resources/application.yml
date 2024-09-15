@@ -1,6 +1,6 @@
 spring:
   profiles:
-    active: tud
-     
+    active: prod
+      
 myproperty: 
   amad's value

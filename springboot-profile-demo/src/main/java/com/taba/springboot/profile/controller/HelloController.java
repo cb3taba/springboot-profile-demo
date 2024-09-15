@@ -29,6 +29,19 @@ public class HelloController {
 				+ "logging file is: " + loggingFile + " and myproperty is: " + myProperty);
 		log.info(helloService.getGreeting() 
 				+ "logging file is: " + loggingFile + " and myproperty is: " + myProperty);
+		
+		if (log.isErrorEnabled()) {
+	  	log.error(helloService.getGreeting() 
+	  			+ "if the stage = tud or stage = prod then logging file is: " + loggingFile + " and myproperty is: " + myProperty);
+	  	log.warn("this log must not seen in the console set the log level for dev to warn");
+		}
+		
+		if (log.isWarnEnabled()) {
+			log.warn("set the log level for dev to warn");
+			log.warn(helloService.getGreeting() 
+					+ "if the stage = dev then logging file is: " + loggingFile + " and myproperty is: " + myProperty);
+			
+		}
 		return "hello";
 	}
 

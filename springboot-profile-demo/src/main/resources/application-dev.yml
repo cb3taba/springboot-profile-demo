@@ -1,11 +1,10 @@
 logging:
-  pattern:
+#  pattern:
     #console: "%d %-5level %logger : %msg%n"
-    file: "%d %-5level [%thread] %logger : %msg%n"
-  level: 
-    com.taba.springboot.profile.*: INFO
-  file: Users/Ahmad/Desktop/logs/dev.log
-    #path: Users/Ahmad/Desktop/logs/
+#    file: "%d %-5level [%thread] %logger : %msg%n"
+#  level: 
+#    com.taba.springboot.profile.controller: INFO
+  file: logs/dev.log
   
 server:
   port: 9090
